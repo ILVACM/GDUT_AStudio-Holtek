@@ -16,11 +16,12 @@ from labelme import utils
    虽然看起来是彩图，但事实上只有8位，此时每个像素点的值就是这个像素点所属的种类。
    所以其实和视频中VOC数据集的格式一样。因此这样制作出来的数据集是可以正常使用的。也是正常的。
 '''
+
 if __name__ == '__main__':
     jpgs_path = "datasets/JPEGImages"
     pngs_path = "datasets/SegmentationClass"
     # classes     = ["_background_","person", "car", "motorbike", "dustbin","chair","fire_hydrant","tricycle","bicycle","stone"]
-    classes = ["_background_", "cat"]
+    classes = ["fire"]
 
     count = os.listdir("./datasets/before/")
     for i in range(0, len(count)):
