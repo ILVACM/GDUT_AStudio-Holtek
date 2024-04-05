@@ -15,13 +15,13 @@ clock = time.clock()                # Create a clock object to track the FPS.
 
 print("ready load model")
 
-labels = ["bulldog", "shorthair"] #类名称，按照label.txt顺序填写
-anchor = (4.21, 4.65, 5.46, 5.51, 6.77, 5.18, 6.04, 6.34, 5.59, 7.12, 6.65, 6.65, 7.30, 6.24, 8.92, 5.83, 8.50, 7.04) # anchors,使用anchor.txt中第二行的值
+labels = ["fire"] #类名称，按照label.txt顺序填写
+anchor = (1.49, 1.42, 1.66, 3.19, 3.68, 1.51, 3.24, 2.66, 6.18, 3.97) # anchors,使用anchor.txt中第二行的值
 
 kpu = KPU()
 # 从sd或flash加载模型
-#kpu.load_kmodel('/sd/det.kmodel')
-kpu.load_kmodel(0x300000, 584744)
+kpu.load_kmodel('/sd/det.kmodel')
+#kpu.load_kmodel(0x300000, 584744)
 kpu.init_yolo2(anchor, anchor_num=(int)(len(anchor)/2), img_w=320, img_h=240, net_w=320 , net_h=240 ,layer_w=10 ,layer_h=8, threshold=0.6, nms_value=0.3, classes=len(labels))
 
 while(True):
